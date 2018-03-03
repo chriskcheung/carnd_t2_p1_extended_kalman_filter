@@ -79,6 +79,10 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 
   // for Radar update, use predicted state x to calculate h(x) instead of using Matrix H
   VectorXd h(3);
+  float px = x_(0);
+  float py = x_(1);
+  float vx = x_(2);
+  float vy = x_(3);
   float d1 = sqrt(px*px + py*py);
   // Skip update if Hj is not valid
   float d2 = atan2(py,px);
